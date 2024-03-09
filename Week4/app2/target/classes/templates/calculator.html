@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<style>
+		.result-box {
+			display: grid;
+			grid-template-columns: fit-content(150px) 10px fit-content(150px);
+			gap: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Simple Calculator</h2>
+	<p>User inputs are <span th:text="${input1}"></span> and <span th:text="${input2}"></span>.</p>
+	<h4>Calculation Result</h4>
+
+	<div class="result-box">
+		<div><span th:text="${input1}"></span> + <span th:text="${input2}"></span></div>
+		<div>=</div>
+		<div><span th:text="${sum}"></span></div>
+
+		<div><span th:text="${input1}"></span> - <span th:text="${input2}"></span></div>
+		<div>=</div>
+		<div><span th:text="${sub}"></span></div>
+
+		<div><span th:text="${input1}"></span> * <span th:text="${input2}"></span></div>
+		<div>=</div>
+		<div><span th:text="${mul}"></span></div>
+
+		<div><span th:text="${input1}"></span> / <span th:text="${input2}"></span></div>
+		<div>=</div>
+		<div><span th:text="${dv}"></span></div>
+	</div>
+</body>
+
+</html>
