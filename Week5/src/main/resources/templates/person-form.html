@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Person Data</title>
+	<style>
+		.form-container {
+			display: grid;
+			grid-template-columns: 120px 170px 170px;
+			gap: 15px;
+		}
+
+		.submit-button {
+			grid-column: span 3;
+			justify-self: left;
+			width: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Person Data</h2>
+	<p>Please fill the following form:</p>
+	<form action="/send-person-data" method="post" th:object="${person}">
+		<div class="form-container">
+			<label for="fn">Full Name:</label>
+			<input type="text" id="fn" th:field="*{fullName}">
+			<span></span>
+			
+			<label for="dob">Date of Birth:</label>
+			<input type="text" id="dob" th:field="*{dateOfBirth}">
+			<span>format: dd-mm-yyyy</span>
+			
+			<label for="g">Gender:</label>
+			<select id="g" th:field="*{gender}">
+				<option value="Female">Female</option>
+				<option value="Male">Male</option>
+			</select>
+			<span></span>			
+
+			<label for="h">Height:</label>
+			<input type="text" id="h" th:field="*{height}">
+			<span>in centimeters</span>
+			
+			<label for="w">Weight:</label>
+			<input type="text" id="w" th:field="*{weight}">
+			<span>in kilograms</span>			
+
+			<input type="submit" value="Send" class="submit-button">
+		</div>
+	</form>
+</body>
+
+</html>

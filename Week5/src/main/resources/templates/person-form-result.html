@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Person Data</title>
+	<style>
+		.result-container {
+			display: grid;
+			grid-template-columns: 140px 250px;
+			gap: 15px;
+		}
+	</style>	
+</head>
+
+<body>
+	<h2>Person Data</h2>
+	<div class="result-container" th:object="${person}">
+		<span>Full Name:</span>
+		<span th:text="*{fullName}"></span>
+
+		<span>Date of Birth:</span>
+		<span><span th:text="*{dateOfBirth}"></span> (Age: <span th:text="*{age}"></span>)</span>
+
+		<span>Gender:</span>
+		<span th:text="*{gender}"></span>
+
+		<span>Height:</span>
+		<span th:text="*{height} + ' cm'"></span>
+
+		<span>Weight:</span>
+		<span th:text="*{weight} + ' kg'"></span>
+
+		<span>Body Mass Index:</span>
+		<span th:text="*{bodyMassIndexString}"></span>
+	</div>
+	
+	<p><a href="person-data.html">Go back</a></p>
+	
+</body>
+
+</html>

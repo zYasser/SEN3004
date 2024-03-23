@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<style>
+		.form-container {
+			display: grid;
+			grid-template-columns: 120px 170px;
+			gap: 15px;
+		}
+
+		.submit-button {
+			grid-column: span 2;
+			justify-self: left;
+			width: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Form Processing</h2>
+	<p>Please fill the following form:</p>
+	<form action="/send-form" method="post" th:object="${formValues}">
+		<div class="form-container">
+			<label for="nf1">Numeric Field:</label>
+			<input type="text" id="nf1" th:field="*{numericField}">
+			
+			<label for="tf1">Text Field:</label>
+			<input type="text" id="tf1" th:field="*{textField}">
+			
+			<label for="df1">Date Field:</label>
+			<input type="text" id="df1" th:field="*{dateField}">			
+
+			<span>Checkbox:</span>
+			<div>
+				<input type="checkbox" id="chk1" value="Item 1" th:field="*{checkboxSelection}"> <label for="chk1">Item 1</label><br>
+				<input type="checkbox" id="chk2" value="Item 2" th:field="*{checkboxSelection}"> <label for="chk2">Item 2</label><br>
+				<input type="checkbox" id="chk3" value="Item 3" th:field="*{checkboxSelection}"> <label for="chk3">Item 3</label>
+			</div>			
+
+			<span>Radio button:</span>
+			<div>
+				<input type="radio" id="rbtn1" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn1">Item 1</label><br>
+				<input type="radio" id="rbtn2" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn2">Item 2</label><br>
+				<input type="radio" id="rbtn3" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn3">Item 3</label>
+			</div>
+			
+			<input type="submit" value="Send" class="submit-button">
+		</div>
+	</form>
+</body>
+
+</html>
