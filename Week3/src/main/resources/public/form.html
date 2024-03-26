@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>App1 - HTML Form Elements</title>
+	<style>
+		.form-container {
+			display: grid;
+			grid-template-columns: fit-content(150px) 170px;
+			gap: 15px;
+		}
+
+		.submit-button {
+			grid-column: span 2;
+			justify-self: right;
+			width: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>HTML Form Elements</h2>
+	<form>
+		<div class="form-container">
+			<label for="txt1">Text Entry 1:</label>
+			<input type="text" placeholder="Enter your text here" id="txt1" name="txt1">
+
+			<label for="txt2">Text Entry 2:</label>
+			<input type="text" value="Enter your text here" id="txt2" name="txt2">
+
+			<label for="pass1">Password Entry:</label>
+			<input type="password" id="pass1" name="pass1">
+
+			<span>Check box:</span>
+			<div>
+				<input type="checkbox" id="chk1" name="chk1"> <label for="chk1">Item 1</label><br>
+				<input type="checkbox" id="chk2" name="chk2"> <label for="chk2">Item 2</label><br>
+				<input type="checkbox" id="chk3" name="chk3"> <label for="chk3">Item 3</label>
+			</div>
+
+			<span>Radio button:</span>
+			<div>
+				<input type="radio" id="rbtn1" name="rbtn"> <label for="rbtn1">Item 1</label><br>
+				<input type="radio" id="rbtn2" name="rbtn"> <label for="rbtn2">Item 2</label><br>
+				<input type="radio" id="rbtn3" name="rbtn"> <label for="rbtn3">Item 3</label>
+			</div>
+
+			<label for="cmb1">Combo box:</label>
+			<select id="cmb1" name="cmb1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+
+			<input type="submit" value="Send" class="submit-button">
+		</div>
+	</form>
+</body>
+
+</html>
