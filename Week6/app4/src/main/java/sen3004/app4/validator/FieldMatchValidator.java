@@ -17,7 +17,7 @@ public class FieldMatchValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		FormData formData = (FormData)target;
-		if(formData.getTextField2().equals(formData.getTextField3()) == false)
+		if(!formData.getTextField2().equals(formData.getTextField3()))
 			errors.rejectValue("textField3", "my.custom.err");		
 	}
 

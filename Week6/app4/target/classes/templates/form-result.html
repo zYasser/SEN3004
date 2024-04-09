@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Submitted Values</title>
+	<style>
+		.result-container {
+			display: grid;
+			grid-template-columns: 150px auto;
+			gap: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Submitted Values</h2>
+	<div class="result-container" th:object="${formData}">
+		<span>Numeric Field 1:</span>
+		<span th:text="*{numericField1}"></span>
+
+		<span>Numeric Field 2:</span>
+		<!--<span th:text="*{#numbers.formatDecimal(numericField2, 1, 2)}"></span>-->
+		<span th:text="*{#numbers.formatDecimal(numericField2, 1, 'COMMA', 2, 'POINT')}"></span>
+
+		<span>Text Field 1:</span>
+		<span th:text="*{textField1}"></span>
+
+		<span>Text Field 2:</span>
+		<span th:text="*{textField2}"></span>
+		
+		<span>Text Field 3:</span>
+		<span th:text="*{textField3}"></span>
+
+		<span>Drop-down Menu:</span>
+		<span th:text="*{dropDownMenu}"></span>				
+
+		<span>Date Field:</span>
+		<span th:text="*{#temporals.format(dateField, 'dd.MM.yyyy')}"></span>
+
+		<span>Checkbox:</span>
+		<span>
+			<span th:each="item, status : *{checkboxSelection}">
+				<span th:if="${status.last}" th:text="${item} + '.'"></span>
+				<span th:unless="${status.last}" th:text="${item} + ', '"></span>
+				<!--<span th:text="${status.last} == true ? ${item} + '.' : ${item} + ', '"></span>-->
+				<!--<span th:if="${status.last and status.size > 1}" th:text="End"></span>-->
+			</span>
+		</span>
+
+		<span>Radio Button:</span>
+		<span th:text="*{radioButtonValue}"></span>
+	</div>
+</body>
+
+</html>

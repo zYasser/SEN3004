@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Form Validation</title>
+	<style>
+		.form-container {
+			display: grid;
+			grid-template-columns: 150px 170px auto;
+			gap: 15px;
+		}
+
+		.submit-button {
+			grid-column: span 3;
+			justify-self: left;
+			width: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Form Validation</h2>
+	<p>Please fill the following form:</p>
+	<form action="/send" method="post" th:object="${formData}">
+		<div class="form-container">
+			<label for="nf1">Numeric Field 1:</label>
+			<input type="text" id="nf1" th:field="*{numericField1}">
+			<div><span th:errors="*{numericField1}" class="error"></span></div>
+			
+			<label for="nf2">Numeric Field 2:</label>
+			<input type="text" id="nf2" th:field="*{numericField2}">
+			<div><span th:errors="*{numericField2}" class="error"></span></div>
+
+			<label for="tf1">Text Field 1:</label>
+			<input type="text" id="tf1" th:field="*{textField1}">
+			<div><span th:errors="*{textField1}" class="error"></span></div>
+
+			<label for="tf2">Text Field 2:</label>
+			<input type="text" id="tf2" th:field="*{textField2}">
+			<div><span th:errors="*{textField2}" class="error"></span></div>
+			
+			<label for="tf3">Text Field 3:</label>
+			<input type="text" id="tf3" th:field="*{textField3}">
+			<div><span th:errors="*{textField3}" class="error"></span></div>
+
+			<label for="ddm1">Drop-down Menu:</label>
+			<select id="ddm1" th:field="*{dropDownMenu}">
+				<option value="">-- Please Select --</option>
+				<option value="Item 1">Item 1</option>
+				<option value="Item 2">Item 2</option>
+				<option value="Item 3">Item 3</option>
+			</select>
+			<div><span th:errors="*{dropDownMenu}" class="error"></span></div>
+
+			<label for="df1">Date Field:</label>
+			<input type="text" id="df1" th:field="*{dateField}">
+			<div><span th:errors="*{dateField}" class="error"></span></div>
+			
+			<span>Checkbox:</span>
+			<div>
+				<input type="checkbox" id="chk1" value="Item 1" th:field="*{checkboxSelection}"> <label for="chk1">Item 1</label><br>
+				<input type="checkbox" id="chk2" value="Item 2" th:field="*{checkboxSelection}"> <label for="chk2">Item 2</label><br>
+				<input type="checkbox" id="chk3" value="Item 3" th:field="*{checkboxSelection}"> <label for="chk3">Item 3</label>
+			</div>
+			<div><span th:errors="*{checkboxSelection}" class="error"></span></div>
+
+			<span>Radio button:</span>
+			<div>
+				<input type="radio" id="rbtn1" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn1">Item 1</label><br>
+				<input type="radio" id="rbtn2" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn2">Item 2</label><br>
+				<input type="radio" id="rbtn3" value="Item 1" th:field="*{radioButtonValue}"> <label for="rbtn3">Item 3</label>
+			</div>
+			<div><span th:errors="*{radioButtonValue}" class="error"></span></div>
+			
+			<input type="submit" value="Send" class="submit-button">
+		</div>
+	</form>
+</body>
+
+</html>
