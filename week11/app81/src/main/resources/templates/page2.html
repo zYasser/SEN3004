@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title th:text="#{title}"></title>
+</head>
+
+<body>
+	<h2 th:text="#{page2WelcomeText}"></h2>
+	<p th:text="#{page2Description}"></p>
+	<p th:text="#{greet('Laura', ${name})}"></p>
+	<p><a href="page1.html" th:text="#{page1LinkLabel}"></a></p>
+	<p><a href="?language=tr">Türkçe</a> | <a href="?language=en">English</a></p>
+</body>
+
+</html>

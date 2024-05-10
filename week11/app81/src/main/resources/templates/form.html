@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title th:text="#{title}"></title>
+	<style>
+		.form-container {
+			display: grid;
+			grid-template-columns: 100px 170px auto;
+			gap: 15px;
+		}
+
+		.submit-button {
+			grid-column: span 3;
+			justify-self: left;
+			width: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 th:text="#{title}"></h2>
+	<p th:text="#{formMessage}"></p>
+
+	<form action="/send-form-data" method="post" th:object="${person}">
+		<div class="form-container">
+			<label for="fn" th:text="#{firstNameLabel}"></label>
+			<input type="text" id="fn" th:field="*{firstName}">
+			<div><span th:errors="*{firstName}" class="error"></span></div>
+			
+			<label for="ln" th:text="#{lastNameLabel}"></label>
+			<input type="text" id="ln" th:field="*{lastName}">
+			<div><span th:errors="*{lastName}" class="error"></span></div>
+					
+			<input type="submit" th:value="#{submitButtonLabel}" class="submit-button">
+		</div>
+	</form>
+
+	<p><a href="form.html?language=tr">Türkçe</a> | <a href="form.html?language=en">English</a></p>
+</body>
+
+</html>

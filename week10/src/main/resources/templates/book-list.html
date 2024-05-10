@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>Book List</title>
+</head>
+
+<body>
+	<h2>Book List</h2>	
+	
+	<div th:unless="${#lists.isEmpty(books)}">
+		<ul>
+			<li th:each="b : ${books}">
+				<span th:text="'(ID: ' + ${b.id} + ') ' + ${b.title}"></span>
+			</li>
+		</ul>
+		<p class="small-italic">Displaying page <span th:text="${current_page} + ' of ' + ${page_count}"></span>.</p>
+		
+		<span th:each="pg : ${#numbers.sequence(1, page_count)}">
+			<span th:if="${pg == current_page}" th:text="${pg}"></span>
+			<a th:if="${pg != current_page}" th:href="'?page=' + ${pg}" th:text="${pg}"></a>
+		</span>
+	</div>
+	
+	<div th:if="${#lists.isEmpty(books)}">
+		<p class="small-italic">No book to show.</p>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title th:text="#{title}"></title>
+	<style>
+		.container {
+			display: grid;
+			grid-template-columns: 100px auto;
+			gap: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 th:text="#{title}"></h2>
+	<p th:text="#{resultMessage}"></p>
+	<div class="container">
+		<span th:text="#{firstNameLabel}"></span>
+		<span th:text="${person.firstName}"></span>
+		
+		<span th:text="#{lastNameLabel}"></span>
+		<span th:text="${person.lastName}"></span>
+	</div>
+	<p><a href="form.html" th:text="#{sendNewValues}"></a></p>
+</body>
+
+</html>

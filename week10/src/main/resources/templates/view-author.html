@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title th:text="${author.fullName}"></title>
+</head>
+
+<body>
+	<h2>Author: <span th:text="${author.fullName}"></span></h2>
+
+	<p><b>List of author's books:</b></p>	
+	
+	<div th:unless="${#lists.isEmpty(author.books)}">
+		<ul>
+			<li th:each="b : ${author.books}">
+				<span th:text="'(ID: ' + ${b.id} + ') ' + ${b.title}"></span>
+			</li>
+		</ul>
+	</div>
+	
+	<div th:if="${#lists.isEmpty(author.books)}">
+		<p class="small-italic">No book available.</p>
+	</div>
+</body>
+
+</html>
